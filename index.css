@@ -1,5 +1,5 @@
 body{
-    background: black; 
+    background: lightblue; 
     align-items: center;
 }
 
@@ -10,6 +10,11 @@ body{
     margin-top: 2rem;
     margin-bottom: 5rem;
     letter-spacing: .17in;
+}
+
+h2.name {
+    color: red; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 textarea{
@@ -31,3 +36,4 @@ textarea{
     color: white; 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
