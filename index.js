@@ -1,20 +1,25 @@
 let mainContainer = document.querySelector("div.candidates")
 
+
 fetch("http://localhost:3000/ballers")
 .then (res => res.json())
 .then (ballers => {
     ballers.forEach(hoopObj => {
-        ballerfy(hoopObj)
-        
+        ballerfy(hoopObj)        
     })
 })
+
 
 function ballerfy (obj){
     
     let player = document.createElement('h2')
     player.innerText = obj.name
+
+    let stats = document.createElement('h4')
+    stats.innerText= obj.accomplishments
     
     let playerImg = document.createElement('img')
+    playerImg.id = obj.team
     playerImg.src = obj.image
 
     let voteCount = document.createElement('h3')
@@ -22,36 +27,14 @@ function ballerfy (obj){
     voteCount.innerText = obj.likes
 
     let voteButton = document.createElement('button')
+    voteButton.className = obj.team
     voteButton.innerText = "VOTE " + obj.name 
-
-    let h3comment = document.createElement('h3')
-    h3comment.className = "user comments"
-    h3comment.innerText = "Why " + obj.name
-
-    let formPlayer = document.createElement("form")
-    formPlayer.className= "userinput"
-
-    let whatUserTyped = document.createElement("textarea")
-    formPlayer.append(whatUserTyped)
-
-    let commentButton = document.createElement('button')
-    commentButton.className = 'reasons'
-    commentButton.innerText = 'Post'
-
-    let h4Title = document.createElement('h4')
-    h4Title.innerText = 'User Comments'
-
-    let ulComments = document.createElement('ul')
-    let blankLi = document.createElement('li')
-    blankLi.innerText= obj.reasons
-
-    ulComments.append(blankLi)
-
-    mainContainer.append(player, playerImg, voteCount, voteButton, h3comment, formPlayer, commentButton, h4Title, ulComments)
-
     
 
+    mainContainer.append(player, stats, playerImg, voteCount, voteButton)
 
+   
+    
     voteButton.addEventListener('click' , (evt) => {
 
         fetch(`http://localhost:3000/ballers/${obj.id}`, {
@@ -67,18 +50,45 @@ function ballerfy (obj){
          .then (updatedObj => {
              voteCount.innerText = updatedObj.likes
              obj.likes = updatedObj.likes
+             voteButton.innerText = "THANK YOU"
+             voteButton.disabled = true
          })        
     })
 }
 
-let formComments = document.querySelector("form.user_comment")
-let userComment = document.querySelector('textarea')
-console.log(userComment)
+// let theForm = document.querySelector('form.user_comment')
+// let textAreaValue = document.querySelector('textarea')
+// let ulSmackTalk = document.querySelector('ul.comments')
 
-formComments.addEventListener('submit' , (evt) => {
-    evt.preventDefault()
+// theForm.addEventListener('submit' , (evt)=>{
 
-    
- 
-})
+//     evt.preventDefault()
+//     let userSmack = textAreaValue.value
+
+//      fetch("http://localhost:3000/ballers/", {
+//          method: "POST",
+//          headers: {
+//            "Content-Type": "application/json",
+//          },
+//          body: JSON.stringify({
+//              reasons: userSmack,
+//              id: 1
+//          }),
+//        })
+//        .then (res => res.json())
+//        .then (mjObj => {
+//           let newLi = document.createElement('li')
+//            newLi.innerText = mjObj.reasons
+//            ulSmackTalk.append(newLi)
+//        })
+//      })
+
+
+
+
+// let newLi = document.createElement('li')
+// newLi.innerText = userSmack
+// ulSmackTalk.append(newLi)
+
+
 
