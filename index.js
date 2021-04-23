@@ -63,6 +63,15 @@ function ballerfy (obj){
     })
 }
 
+fetch("http://localhost:3000/comments")
+.then (res => res.json())
+.then (comment => {
+comment.forEach(userComment => {
+let newLi = document.createElement('li')
+newLi.innerText = userComment.comment
+ulSmackTalk.append(newLi) 
+})
+})
 
 
 
@@ -82,21 +91,18 @@ theForm.addEventListener('submit' , (evt)=>{
        })
        .then(res => res.json())
        .then(newObj => {
-           let blankLi = document.createElement('li')
-           blankLi.innerText= newObj.comment
-           ulSmackTalk.append(blankLi)
+           postComment(newObj)
        })
     })
 
-    fetch("http://localhost:3000/comments")
-    .then (res => res.json())
-    .then (comment => {
-    comment.forEach(userComment => {
-    let newLi = document.createElement('li')
-    newLi.innerText = userComment.comment
-    ulSmackTalk.append(newLi) 
-    })
-})
+
+function postComment (obj){
+    let blankLi = document.createElement('li')
+           blankLi.innerText= obj.comment
+           ulSmackTalk.append(blankLi)
+
+}    
+
  
 
 

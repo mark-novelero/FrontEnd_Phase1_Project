@@ -4,14 +4,41 @@ body{
 }
 
 .maintitle{
-    font-size:  32pt;
+    font-size:  36pt;
     color: red;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     letter-spacing: .17in;
     text-shadow: 1px 1px 2px white;
+}
+
+h2.subtitle{
+    font-size:  38pt;
+    text-decoration: underline;
+    color: rgb(184, 7, 7);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 9rem;
+    margin-bottom: .5;
+    letter-spacing: .17in;
+    text-shadow: 1px 2px 3px white;
+}
+
+div.buttons{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+
+
+}
+
+.odebates{
+    font-size: 14pt;
+    color: black;
+    margin-left: .20in;
+    text-decoration: underline;
 }
 
 h4{
@@ -19,6 +46,7 @@ h4{
     color:red;
     text-shadow: .75px .75px 1.5px white
 }
+
 
 .sub {
     font-size:  14pt;
@@ -101,8 +129,8 @@ button {
 #Bulls {
     border-bottom-color: red;
     border-top-color: red;
-    max-height: 30%;
-    max-width: 30%;
+    max-height: 25%;
+    max-width: 25%;
 }
 
 #Lakers00 {
@@ -181,3 +209,14 @@ li{
     position: relative;
     vertical-align: middle;
 }
+
+.lbj {
+    max-width: 30%;
+}
+
+.container {
+    position: relative;
+    width: 50%;
+  }
+  
+ 
